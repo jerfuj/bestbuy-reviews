@@ -1,0 +1,20 @@
+{
+  "name": "bestbuy-reviews",
+  "version": "1.0.0",
+  "description": "reviews component for best buy page mockup",
+  "main": "./server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrsjo3-bigbrain/bestbuy-reviews.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrsjo3-bigbrain/bestbuy-reviews/issues"
+  },
+  "homepage": "https://github.com/hrsjo3-bigbrain/bestbuy-reviews#readme"
+}
