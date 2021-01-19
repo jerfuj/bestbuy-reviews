@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const { getAll } = require('../database/index.js');
 const { updateReview } = require('../database/index.js');
 
+app.use(express.static(`${__dirname}/../client/dist`));
+
 app.get('/api/reviews/:id', (req, res) => {
   const { id } = req.params;
   getAll(id, (err, results) => {
