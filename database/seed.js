@@ -24,16 +24,16 @@ const generateReviews = () => {
       reviewBody: faker.lorem.paragraph(),
       reviewDate: faker.date.recent(),
       dateBought: faker.date.past(),
-      rating: (Math.random() * 5),
+      rating: Math.floor(Math.random() * 5),
       recommend: faker.random.boolean(),
       verifiedPurchase: faker.random.boolean(),
       images: generateImages(),
       helpful: faker.random.number(),
       unhelpful: faker.random.number(),
       features: {
-        quality: (Math.random() * 5),
-        value: (Math.random() * 5),
-        easeOfUse: (Math.random() * 5),
+        quality: Math.floor(Math.random() * 5),
+        value: Math.floor(Math.random() * 5),
+        easeOfUse: Math.floor(Math.random() * 5),
       },
     });
   }
