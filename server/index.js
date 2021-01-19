@@ -23,6 +23,9 @@ app.get('/api/reviews/:id', (req, res) => {
 
 app.put('/api/reviews/:id/helpful', (req, res) => {
   const { id } = req.params;
+  const { review } = req.params;
+  console.log(id);
+  console.log('review:', review);
   const value = 'helpful';
   updateReview(value, id, (err, results) => {
     if (err) {
