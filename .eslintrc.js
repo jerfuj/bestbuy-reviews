@@ -19,6 +19,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    'no-console': 'off',
+    'no-console': 0,
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };
