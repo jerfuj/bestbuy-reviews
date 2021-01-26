@@ -1,16 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 const testdata = {
   productId: 1,
-  user: [
-    {
-      userId: 1,
-      username: 'BillyBob',
-    },
-    {
-      userId: 2,
-      username: 'BillyJoel',
-    },
-  ],
+  totalReviews: 2,
+  totalFiveStars: 0,
+  totalFourStars: 1,
+  totalThreeStars: 1,
+  totalTwoStars: 0,
+  totalOneStars: 0,
+  averageRating: 3.5,
+  totalRecommends: 2,
+  pros: [{ word: 'good', count: 10 }, { word: 'cool', count: 9 }, { word: 'qwerty', count: 9 }, { word: 'hello', count: 9 }, { word: 'bestbuy', count: 9 }],
+  cons: [{ word: 'bad', count: 15 }, { word: 'notcool', count: 9 }, { word: 'qwerty', count: 2 }, { word: 'olleh', count: 1 }, { word: 'buybest', count: 4 }],
   reviews: [
     {
       title: 'Airpods Max So Gud',

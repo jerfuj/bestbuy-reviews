@@ -1,21 +1,40 @@
+/* eslint-disable import/extensions */
 import React from 'react';
-// eslint-disable-next-line import/extensions
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import RatingSummary from './RatingSummary/RatingSummary.jsx';
+import RatingBars from './ratingBars/RatingBars.jsx';
+import Mentions from './Mentions/Mentions.jsx';
 
-class ReviewSummary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+const Body = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid grey;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+`;
 
-  render() {
-    return (
-      <div>
-        <RatingSummary />
-      </div>
-    );
-  }
-}
+const ReviewSummary = ({
+  rating, numReviews, recommends, numbers, applyFilter, mentions,
+}) => {
+  console.log('REVIEWSUMMARY MENTIONS: ', mentions);
+  return (
+    <Body>
+      <RatingSummary rating={rating} numReviews={numReviews} recommends={recommends} />
+      <RatingBars numbers={numbers} applyFilter={applyFilter} />
+      <Mentions mentions={mentions} />
+    </Body>
+  );
+};
+
+ReviewSummary.propTypes = {
+  rating: PropTypes.number.isRequired,
+  numReviews: PropTypes.number.isRequired,
+  recommends: PropTypes.number.isRequired,
+  numbers: PropTypes.shape({}).isRequired,
+  applyFilter: PropTypes.func.isRequired,
+  mentions: PropTypes.shape({}).isRequired,
+};
 
 export default ReviewSummary;
