@@ -99,20 +99,17 @@ const SeeAll = styled.div`
 const Reviews = ({
   reviews, filter, verified, applyVerifiedFilter,
 }) => {
-  console.log('hello');
   const [seeMore, setSeeMore] = useState(false);
   const filteredReviews = [];
   let verifiedReviews = [];
   for (let i = 0; i < reviews.length; i += 1) {
     const revRating = reviews[i].rating;
-    // console.log('rating: ', revRating);
     if (filter === 0) {
       filteredReviews.push(reviews[i]);
     } else if (revRating === filter) {
       filteredReviews.push(reviews[i]);
     }
   }
-  console.log('here');
   if (verified === true) {
     for (let i = 0; i < filteredReviews.length; i += 1) {
       const verify = filteredReviews[i].verifiedPurchase;

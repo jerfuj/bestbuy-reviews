@@ -11,16 +11,13 @@ const Body = styled.div`
   width: 147px;
 `;
 
-const MentionsList = ({ list }) => {
-  console.log('list is a: ', typeof list);
-  return (
-    <Body>
-      {list.map((word, count, index) => (
-        <Mention word={word} count={count} key={index} />
-      ))}
-    </Body>
-  );
-};
+const MentionsList = ({ list }) => (
+  <Body>
+    {list.map((word, count, index) => (
+      <Mention word={word} count={count} key={index} />
+    ))}
+  </Body>
+);
 
 MentionsList.propTypes = {
   list: PropTypes.instanceOf(Array).isRequired,

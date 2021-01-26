@@ -55,18 +55,16 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getProduct('95');
+    this.getProduct();
   }
 
   // eslint-disable-next-line react/sort-comp
-  getProduct(id) {
-    $.get(`/api/reviews/${id}`, (results) => {
+  getProduct() {
+    $.get(`http://localhost:3003/api${window.location.pathname}`, (results) => {
       this.setState({
         product: results[0],
         reviews: results[0].reviews,
       });
-      // this.findAverage();
-      console.log('state has been set with server data');
     });
   }
 
@@ -101,7 +99,6 @@ class App extends React.Component {
 
   applyVerifiedFilter(e) {
     e.preventDefault();
-    console.log('clicked on applyVerifiedFilter');
     const ver = 'true';
     const { verified } = this.state;
     if (ver === 'true') {
@@ -161,8 +158,6 @@ class App extends React.Component {
       pros,
       cons,
     };
-
-    console.log('mentions: ', mentions);
 
     return (
       <Body>

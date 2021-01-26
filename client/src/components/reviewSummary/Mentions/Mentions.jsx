@@ -21,8 +21,6 @@ const Cons = styled.div`
 const Mentions = ({ mentions }) => {
   const { pros } = mentions;
   const { cons } = mentions;
-  console.log('MENTIONS: ', mentions);
-  console.log('in mentions, PROS IS: ', Array.isArray(pros));
   return (
     <Body>
       <Pros>

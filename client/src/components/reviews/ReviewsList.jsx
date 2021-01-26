@@ -30,12 +30,3 @@ ReviewsList.propTypes = {
 };
 
 export default ReviewsList;
-
-/*
-const ReviewsList = ({ reviews, showMore }) => (
-  <div>
-    {reviews.map((review, _id, index) => (
-      <Review key={_id} review={review} showMore={showMore} index={index} />
-    ))}
-  </div>
-); */

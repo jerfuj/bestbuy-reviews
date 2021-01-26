@@ -1,25 +1,27 @@
 const express = require('express');
+// const path = require('path');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3000;
+const port = 3003;
 
 const { getAll } = require('../database/index.js');
-// const { updateReview } = require('../database/index.js');
 
-app.use(express.static(`${__dirname}/../client/dist`));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/reviews/:id', express.static(`${__dirname}/../client/dist`));
+
+app.get('/', (req, res) => {
+  res.redirect('/reviews/1');
+});
 
 app.get('/api/reviews/:id', (req, res) => {
-  console.log('in the express server get');
   const { id } = req.params;
-  console.log('id is: ', id);
   getAll(id, (err, results) => {
     if (err) {
-      console.log('erroring in express');
-      res.status(400).end();
+      res.status(400).end(`Error finding product reviews for product id: ${id}`);
     }
-    console.log('success in express');
-    console.log('results:');
-    console.log(results);
     res.status(200).send(results);
   });
 });

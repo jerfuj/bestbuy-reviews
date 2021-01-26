@@ -47,7 +47,7 @@ const Review = ({ review, showMore, index }) => {
 Review.propTypes = {
   review: PropTypes.shape({}).isRequired,
   showMore: PropTypes.bool.isRequired,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default Review;

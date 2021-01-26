@@ -29,24 +29,19 @@ const Body = styled.div`
   }
 `;
 
-const Mention = ({ word, count }) => {
-  // console.log('WORD IS: ', word);
-  console.log('COUNT IS: ', count);
-  console.log('');
-  return (
-    <Body>
-      {word.word}
-      {' '}
-      (
-      {count}
-      )
-    </Body>
-  );
-};
+const Mention = ({ word, count }) => (
+  <Body>
+    {word.word}
+    {' '}
+    (
+    {count}
+    )
+  </Body>
+);
 
 Mention.propTypes = {
   word: PropTypes.shape({}).isRequired,
-  count: PropTypes.shape({}).isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 export default Mention;

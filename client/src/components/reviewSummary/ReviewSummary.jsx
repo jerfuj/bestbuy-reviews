@@ -17,16 +17,13 @@ const Body = styled.div`
 
 const ReviewSummary = ({
   rating, numReviews, recommends, numbers, applyFilter, mentions,
-}) => {
-  console.log('REVIEWSUMMARY MENTIONS: ', mentions);
-  return (
-    <Body>
-      <RatingSummary rating={rating} numReviews={numReviews} recommends={recommends} />
-      <RatingBars numbers={numbers} applyFilter={applyFilter} />
-      <Mentions mentions={mentions} />
-    </Body>
-  );
-};
+}) => (
+  <Body>
+    <RatingSummary rating={rating} numReviews={numReviews} recommends={recommends} />
+    <RatingBars numbers={numbers} applyFilter={applyFilter} />
+    <Mentions mentions={mentions} />
+  </Body>
+);
 
 ReviewSummary.propTypes = {
   rating: PropTypes.number.isRequired,

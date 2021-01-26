@@ -59,7 +59,7 @@ const getAll = (pid, callback) => {
   // console.log('callback is: ', callback);
   Product.find({ productId: pid }, (err, results) => {
     if (err) {
-      throw err;
+      callback(err);
     }
     callback(null, results);
   });
