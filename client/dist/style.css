@@ -1,0 +1,12 @@
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 1px solid #c5cbd5;
+  border-bottom: 1px solid #c5cbd5;
+
+}
+
+.child1 {
+
+}

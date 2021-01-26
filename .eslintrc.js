@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -19,6 +20,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    'no-console': 'off',
+    'no-console': 0,
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };

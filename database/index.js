@@ -6,11 +6,23 @@ mongoose.connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const reviewSchema = mongoose.Schema({
   productId: Number,
+  totalReviews: Number,
+  totalFiveStars: Number,
+  totalFourStars: Number,
+  totalThreeStars: Number,
+  totalTwoStars: Number,
+  totalOneStars: Number,
+  averageRating: Number,
+  totalRecommends: Number,
+  pros: [{
+    word: String,
+    count: Number,
+  }],
+  cons: [{
+    word: String,
+    count: Number,
+  }],
   reviews: [{
-    user: [{
-      userId: Number,
-      username: String,
-    }],
     title: String,
     reviewer: String,
     reviewBody: String,
@@ -45,7 +57,7 @@ db.once('open', () => {
 
 const getAll = (pid, callback) => {
   // console.log('callback is: ', callback);
-  Product.find({ _id: pid }, (err, results) => {
+  Product.find({ productId: pid }, (err, results) => {
     if (err) {
       throw err;
     }
@@ -53,26 +65,7 @@ const getAll = (pid, callback) => {
   });
 };
 
-const updateReview = (value, pid, review, callback) => {
-  if (value === 'helpful') {
-    Product.updateOne({ _id: pid, 'reviews._id': review }, { $inc: { 'reviews.helpful': 1 } }, (err, results) => {
-      if (err) {
-        throw err;
-      }
-      callback(null, results);
-    });
-  } else if (value === 'unhelpful') {
-    Product.updateOne({ _id: pid, 'reviews._id': review }, { $inc: { 'reviews.unhelpful': 1 } }, (err, results) => {
-      if (err) {
-        throw err;
-      }
-      callback(null, results);
-    });
-  }
-};
-
 module.exports = {
   Product,
   getAll,
-  updateReview,
 };
