@@ -10,13 +10,14 @@ const { getAll } = require('../database/index.js');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/reviews/:id', express.static(`${__dirname}/../client/dist`));
+app.use('/products/:id', express.static(`${__dirname}/../client/dist`));
+app.use('/bundle', express.static(`${__dirname}/../client/dist/bundle.js`));
 
-app.get('/', (req, res) => {
-  res.redirect('/reviews/1');
-});
+// app.get('/api', (req, res) => {
+//   res.redirect('/api/reviews/1');
+// });
 
-app.get('/api/reviews/:id', (req, res) => {
+app.get('/api/products/:id', (req, res) => {
   const { id } = req.params;
   getAll(id, (err, results) => {
     if (err) {

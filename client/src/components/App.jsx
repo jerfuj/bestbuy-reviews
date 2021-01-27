@@ -4,7 +4,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import $ from 'jquery';
-import Reviews from './reviews/reviews.jsx';
+import Reviews from './reviews/Reviews.jsx';
 import StarRatings from './StarRatings.jsx';
 import ReviewSummary from './reviewSummary/ReviewSummary.jsx';
 import testdata from './testdata.js';
@@ -14,7 +14,7 @@ const Body = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   display: block;
-  margin-left: 152.5px;
+  // margin-left: 152.5px;
 `;
 const Dropdown = styled.div`
   cursor: pointer;
@@ -28,6 +28,8 @@ const Dropdown = styled.div`
 `;
 const ReviewTitle = styled.div`
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Icons = styled.div`
@@ -160,26 +162,67 @@ class App extends React.Component {
     };
 
     return (
-      <Body>
-        <Dropdown role="button" tabIndex="0" onClick={this.handleKeyPress} onKeyPress={this.handleKeyPress}>
-          <ReviewTitle>Reviews</ReviewTitle>
-          <Icons style={{ display: (dropDown ? 'none' : '') }}>
-            <StarRatings rating={averageRating} sizing={16} />
-            <div>
-              (
-              {reviews.length}
-              )
-            </div>
-            <Chevron>
-              <i className="fas fa-chevron-down" />
-            </Chevron>
-          </Icons>
-        </Dropdown>
-        <div style={{ display: (dropDown ? 'block' : 'none') }}>
-          <ReviewSummary rating={averageRating} numReviews={reviews.length} recommends={totalRecommends} numbers={numbers} applyFilter={this.applyFilter} mentions={mentions} />
-          <Reviews reviews={reviews} filter={filter} verified={verified} applyVerifiedFilter={this.applyVerifiedFilter} />
-        </div>
-      </Body>
+      <div>
+        <Body>
+          <Dropdown>
+            <ReviewTitle>
+              Overview
+              {' '}
+              <Chevron>
+                <i className="fas fa-chevron-down" />
+              </Chevron>
+            </ReviewTitle>
+          </Dropdown>
+          <Dropdown>
+            <ReviewTitle>
+              Specifications
+              {' '}
+              <Chevron>
+                <i className="fas fa-chevron-down" />
+              </Chevron>
+            </ReviewTitle>
+          </Dropdown>
+          <Dropdown role="button" tabIndex="0" onClick={this.handleKeyPress} onKeyPress={this.handleKeyPress}>
+            <ReviewTitle>Reviews</ReviewTitle>
+            <Icons style={{ display: (dropDown ? 'none' : '') }}>
+              {' '}
+              <StarRatings rating={averageRating} sizing={16} />
+              {' '}
+              <div>
+                (
+                {reviews.length}
+                )
+              </div>
+              {' '}
+              <Chevron>
+                <i className="fas fa-chevron-down" />
+              </Chevron>
+            </Icons>
+          </Dropdown>
+          <div style={{ display: (dropDown ? 'block' : 'none') }}>
+            <ReviewSummary rating={averageRating} numReviews={reviews.length} recommends={totalRecommends} numbers={numbers} applyFilter={this.applyFilter} mentions={mentions} />
+            <Reviews reviews={reviews} filter={filter} verified={verified} applyVerifiedFilter={this.applyVerifiedFilter} />
+          </div>
+          <Dropdown>
+            <ReviewTitle>
+              Questions & Answers
+              {' '}
+              <Chevron>
+                <i className="fas fa-chevron-down" />
+              </Chevron>
+            </ReviewTitle>
+          </Dropdown>
+          <Dropdown>
+            <ReviewTitle>
+              {' '}
+              Buying Options
+              <Chevron>
+                <i className="fas fa-chevron-down" />
+              </Chevron>
+            </ReviewTitle>
+          </Dropdown>
+        </Body>
+      </div>
     );
   }
 }
